@@ -1,6 +1,6 @@
 {
   "name": "syslogd",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "syslog server and parser",
   "main": "index.js",
   "directories": {
@@ -19,5 +19,14 @@
   "license": "ISC",
   "dependencies": {
     "debug": "^2.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chunpu/syslogd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chunpu/syslogd/issues"
+  },
+  "homepage": "https://github.com/chunpu/syslogd"
 }
