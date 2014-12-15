@@ -1,6 +1,7 @@
 Syslogd
 ===
 
+[![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
 
 nodejs syslog server, including syslog message parser
@@ -39,5 +40,7 @@ Syslogd(function(info) {
 
 Check parser performance by `npm run performance`, which will run 500000 times
 
+[npm-image]: https://img.shields.io/npm/v/syslogd.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/syslogd
 [travis-image]: https://img.shields.io/travis/chunpu/syslogd.svg?style=flat
 [travis-url]: https://travis-ci.org/chunpu/syslogd
