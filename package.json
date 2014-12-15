@@ -1,0 +1,23 @@
+{
+  "name": "syslogd",
+  "version": "1.0.0",
+  "description": "syslog server and parser",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "sudo node test",
+    "performance": "node performance"
+  },
+  "keywords": [
+    "syslog",
+    "parser",
+    "server"
+  ],
+  "author": "ft",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.1.0"
+  }
+}
