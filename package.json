@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "sudo node test",
+    "test": "node test",
     "performance": "node performance"
   },
   "keywords": [
