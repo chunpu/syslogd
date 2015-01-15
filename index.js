@@ -39,7 +39,7 @@ proto.listen = function(port, cb) {
             var info = parser(msg, rinfo)
             me.handler(info)
         })
-        .bind(port)
+        .bind(port, this.opt.address )
 
     return this
 }
