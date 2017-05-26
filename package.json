@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "$(which node) test",
+    "test": "$(which node) test/test.stream.js && $(which node) test && $(which node) test/tcp.js && $(which node) test/tcp.multi.js",
     "performance": "node performance"
   },
   "keywords": [
@@ -20,7 +20,9 @@
   "dependencies": {
     "debug": "^2.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha" : "3.4.2"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/chunpu/syslogd.git"
