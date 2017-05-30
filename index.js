@@ -134,7 +134,8 @@ StreamService.prototype.listen = function( port, callback ){
         })
         .on('listening', function() {
             debug('tcp binding ok')
-            callback(null)
+			me.port = server.address().port
+            callback(null, me)
         })
         .listen( port, this.opt.address )
 
