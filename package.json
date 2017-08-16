@@ -30,5 +30,6 @@
   "bugs": {
     "url": "https://github.com/chunpu/syslogd/issues"
   },
-  "homepage": "https://github.com/chunpu/syslogd"
+  "homepage": "https://github.com/chunpu/syslogd",
+  "engines" : { "node" : ">=6.0.0" }
 }
