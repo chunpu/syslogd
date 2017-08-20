@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "sudo $(which node) test",
+    "test": "mocha",
     "performance": "node performance"
   },
   "keywords": [
@@ -20,7 +20,9 @@
   "dependencies": {
     "debug": "^2.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha" : "3.4.2"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/chunpu/syslogd.git"
@@ -28,5 +30,6 @@
   "bugs": {
     "url": "https://github.com/chunpu/syslogd/issues"
   },
-  "homepage": "https://github.com/chunpu/syslogd"
+  "homepage": "https://github.com/chunpu/syslogd",
+  "engines" : { "node" : ">=6.0.0" }
 }
