@@ -17,8 +17,8 @@ describe( "given a TCP Syslog Server", () => {
 			info.address = null
 			info.family = null
 			var shouldRet = {
-				  facility: 7
-				, severity: 22
+				  facility: 22
+				, severity: 7
 				, tag: 'tag'
 				, time: new Date(time + ' ' + new Date().getFullYear())
 				, hostname: 'hostname'
