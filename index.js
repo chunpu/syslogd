@@ -1,5 +1,4 @@
 // vim: set ft=javascript tabstop=4 softtabstop=4 shiftwidth=4 autoindent:
-var dgram = require('dgram')
 var debug = require('debug')('syslogd')
 
 module.exports = exports = Syslogd
@@ -13,18 +12,23 @@ function Syslogd(fn, opt) {
     this.opt = opt || {}
     this.handler = fn
 
-    this.server = dgram.createSocket('udp4')
+    this.server = this.opt.server || require('dgram').createSocket('udp4')
 }
 
 var proto = Syslogd.prototype
 
 proto.listen = function(port, cb) {
-    var server = this.server
     if (this.port) {
-        debug('server has binded to %s', port)
+        debug('server has already bound to %s', port)
         return
     }
-    debug('try bind to %s', port)
+
+    if(this.opt.unlinkSocket) {
+       try { require('fs').unlinkSync(port); } catch(ex) {}
+    }
+
+    var server = this.server
+    debug('try binding to %s', port)
     cb = cb || noop
     this.port = port || 514 // default is 514
     var me = this

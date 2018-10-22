@@ -38,6 +38,18 @@ Syslogd(function(info) {
 })
 ```
 
+Or using unix domain sockets:
+
+```js
+const unix = require("unix-dgram");
+var Syslogd = require('syslogd')
+Syslogd(function(info) {
+   console.log("line received", info);
+}, {server: unix.createSocket('unix_dgram'), unlinkSocket: true}).listen("/var/log/nginx.sock", function(err) {
+    console.log('start', err)
+})
+```
+
 Check parser performance by `npm run performance`, which will run 500000 times
 
 [npm-image]: https://img.shields.io/npm/v/syslogd.svg?style=flat-square
