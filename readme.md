@@ -38,6 +38,32 @@ Syslogd(function(info) {
 })
 ```
 
+Or using unix domain sockets:
+
+```js
+const unix = require("unix-dgram");
+var Syslogd = require('syslogd')
+Syslogd(function(info) {
+    /*
+    info = {
+          facility: 7
+        , severity: 22
+        , tag: 'tag'
+        , time: Mon Dec 15 2014 10:58:44 GMT-0800 (PST)
+        , hostname: 'hostname'
+        , address: '127.0.0.1'
+        , family: 'IPv4'
+        , port: null
+        , size: 39
+        , msg: 'info'
+    }
+    */
+   console.log("line received", info);
+}, {server: unix.createSocket('unix_dgram'), unlinkSocket: true}).listen("/var/log/nginx.sock", function(err) {
+    console.log('start', err)
+})
+```
+
 Check parser performance by `npm run performance`, which will run 500000 times
 
 [npm-image]: https://img.shields.io/npm/v/syslogd.svg?style=flat-square
