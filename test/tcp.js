@@ -1,6 +1,5 @@
 // vim: set ft=javascript tabstop=4 softtabstop=4 shiftwidth=4 autoindent:
 var assert = require('assert')
-let mocha = require( 'mocha' )
 var net = require('net')
 
 describe( "given a TCP Syslog Server", () => {
@@ -16,11 +15,11 @@ describe( "given a TCP Syslog Server", () => {
 			info.port = null // port is random
 			info.address = null
 			info.family = null
-			var shouldRet = {
+			var shouldReturn = {
 				  facility: 22
 				, severity: 7
 				, tag: 'tag'
-				, time: new Date(time + ' ' + new Date().getFullYear())
+				, time: new Date( time + ' ' + new Date().getFullYear() )
 				, hostname: 'hostname'
 				, address: null
 				, family: null
@@ -28,13 +27,13 @@ describe( "given a TCP Syslog Server", () => {
 				, size: testMsg.length
 				, msg: 'info'
 			}
-			assert.deepEqual(shouldRet, info)
+			assert.deepStrictEqual( info, shouldReturn )
 			done()
 		}).listen( port, function(err, service ) { // sudo
 			assert.ifError( err )
-			var buffer = new Buffer(testMsg)
+			var buffer = Buffer.from( testMsg )
 			var client = net.connect( service.port, 'localhost', function() {
-				client.write(buffer, function(err, bytes) {
+				client.write( buffer, function(err) {
 					assert.ifError( err )
 					client.end()
 				})
